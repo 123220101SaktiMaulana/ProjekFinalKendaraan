@@ -1,0 +1,125 @@
+### Register Admin
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "email": "admin1@example.com",
+  "password": "password123",
+  "role": "admin"
+}
+
+###
+
+### Login Admin
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email": "admin1@example.com",
+  "password": "password123"
+}
+
+###
+
+### Refresh Token
+GET http://localhost:5000/api/token
+Accept: application/json
+# Pastikan cookie refreshToken sudah tersimpan oleh REST Client
+
+###
+
+### Get Users (Protected)
+GET http://localhost:5000/api/vehicles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3OTExMjEzLCJleHAiOjE3NDc5MTIxMTN9.z2o3j6UvX9Umqg0d9oM8HhOBt1oGy_ItsRFS69Oh9IE
+###
+
+### Logout
+DELETE http://localhost:5000/api/logout
+
+
+
+###
+### Get All Vehicles (Protected)
+GET http://localhost:5000/api/vehicles
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3OTc0ODI0LCJleHAiOjE3NDc5NzU3MjR9.JOUB0oOyAaY7p5vkSaFHoR2nZ_j2JvzibfL_3oOJiV4
+
+###
+
+### Get Vehicle By ID (Protected)
+GET http://localhost:5000/api/vehicles/1
+Authorization: Bearer 
+
+###
+
+### Create New Vehicle (Protected)
+POST http://localhost:5000/api/vehicles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3OTc0ODI0LCJleHAiOjE3NDc5NzU3MjR9.JOUB0oOyAaY7p5vkSaFHoR2nZ_j2JvzibfL_3oOJiV4
+
+{
+  "name": "Toyota Supra",
+  "brand": "Toyota",
+  "year": 2022,
+  "description": "Mobil sport legendaris",
+  "image_url": "https://example.com/supra.jpg",
+  "category": "Mobil Sport"
+}
+
+###
+
+### Update Vehicle (Protected)
+PUT http://localhost:5000/api/vehicles/1
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+  "name": "Toyota Supra GR",
+  "brand": "Toyota",
+  "year": 2023,
+  "description": "Update dengan teknologi GR",
+  "image_url": "https://example.com/supra-gr.jpg",
+  "category": "Mobil Sport"
+}
+
+###
+
+### Delete Vehicle (Protected)
+DELETE http://localhost:5000/api/vehicles/1
+Authorization: Bearer 
+
+
+### REGISTER USER
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "username": "pengunjung1",
+  "email": "pengunjung1@example.com",
+  "password": "password123",
+  "role": "user"
+}
+
+###
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email": "pengunjung1@example.com",
+  "password": "password123"
+}
+
+###
+POST http://localhost:5000/favorites
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoicGVuZ3VuanVuZzIiLCJyb2xlIjoidXNlciIsImlhdCI6MTc0Nzk3Mzc4NSwiZXhwIjoxNzQ3OTc0Njg1fQ.06Wctp9DEMntfa1FeYi42wjMTKmh-7S2bv58OsqXvuU
+
+{
+  "userId": 2,
+  "vehicleId": 1
+}
+
+
+###
+GET http://localhost:5000/favorites/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoicGVuZ3VuanVuZzIiLCJyb2xlIjoidXNlciIsImlhdCI6MTc0Nzk3Mzc4NSwiZXhwIjoxNzQ3OTc0Njg1fQ.06Wctp9DEMntfa1FeYi42wjMTKmh-7S2bv58OsqXvuU

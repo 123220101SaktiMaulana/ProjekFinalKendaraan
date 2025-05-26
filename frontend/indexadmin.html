@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard Admin - Kendaraan</title>
+  <link rel="stylesheet" href="styleadmin.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="logo-section" onclick="refreshPage()">
+      <img src="https://img.freepik.com/premium-photo/car-vector-2d-logo-minimal-icon_941097-128691.jpg" alt="Logo"
+        class="logo">
+      <div class="slogan">
+        <strong>THOMASCAR</strong><br>
+        <small>Sakti Topher</small>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <button id="logoutBtn" class="tech-button">Logout</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="header">
+      <h2>Dashboard Admin - Kendaraan</h2>
+    </div>
+
+    <p id="message" class="hidden"></p>
+
+    <div class="card">
+      <h3>Tambah / Edit Kendaraan</h3>
+      <form id="vehicleForm">
+        <input type="hidden" id="vehicleId" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="year">Tahun:</label>
+            <input type="number" id="year" min="1900" max="2100" />
+          </div>
+          <div class="form-group">
+            <label for="category">Kategori:</label>
+            <input type="text" id="category" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="image_url">URL Gambar:</label>
+            <input type="text" id="image_url" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="description">Deskripsi:</label>
+            <textarea id="description" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveBtn" class="btn btn-primary">Simpan</button>
+          <button type="button" id="cancelBtn" class="btn btn-secondary hidden">Batal</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Daftar Kendaraan</h3>
+      <div class="table-container">
+        <table id="vehiclesTable">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Brand</th>
+              <th>Tahun</th>
+              <th>Kategori</th>
+              <th>Deskripsi</th>
+              <th>Gambar</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Function to refresh page or scroll to top
+    function refreshPage() {
+      // Option 1: Refresh the page
+      // window.location.reload();
+      
+      // Option 2: Scroll to top (more elegant)
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Your existing JavaScript code would go here
+    // (I'm not including it to avoid changing other functionality)
+  </script>
+  <script src="scriptindex.js"></script>
+</body>
+
+</html>
