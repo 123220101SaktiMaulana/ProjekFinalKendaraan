@@ -1,5 +1,5 @@
 ### Register Admin
-POST http://localhost:5000/api/users
+POST https://kendaraan-be-75-101-981623652580.us-central1.run.app/api/users
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 ###
 
 ### Login Admin
-POST http://localhost:5000/api/login
+POST https://kendaraan-be-75-101-981623652580.us-central1.run.app/api/login
 Content-Type: application/json
 
 {
@@ -30,7 +30,7 @@ Accept: application/json
 ###
 
 ### Get Users (Protected)
-GET http://localhost:5000/api/vehicles
+GET https://kendaraan-be-75-101-981623652580.us-central1.run.app/api/vehicles
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3OTExMjEzLCJleHAiOjE3NDc5MTIxMTN9.z2o3j6UvX9Umqg0d9oM8HhOBt1oGy_ItsRFS69Oh9IE
 ###
 
@@ -53,18 +53,44 @@ Authorization: Bearer
 ###
 
 ### Create New Vehicle (Protected)
-POST http://localhost:5000/api/vehicles
+POST https://kendaraan-be-75-101-981623652580.us-central1.run.app/api/vehicles
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ3OTc0ODI0LCJleHAiOjE3NDc5NzU3MjR9.JOUB0oOyAaY7p5vkSaFHoR2nZ_j2JvzibfL_3oOJiV4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInVzZXJuYW1lIjoiYWRtaW4xIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ4MjMyMDA3LCJleHAiOjE3NDgyMzIwNjd9.sKt5SZYJG4HyCrv5d-Af9rm_hYoTs_AeYyOFvYMGdP4
 
-{
-  "name": "Toyota Supra",
-  "brand": "Toyota",
-  "year": 2022,
-  "description": "Mobil sport legendaris",
-  "image_url": "https://example.com/supra.jpg",
-  "category": "Mobil Sport"
-}
+  {
+    "name": "Toyota Supra",
+    "brand": "Toyota",
+    "year": 2022,
+    "description": "Mobil sport legendaris dengan performa tinggi dan desain agresif.",
+    "image_url": "https://unsplash.com/photos/a-car-with-smoke-coming-out-of-it-Q3YrOEXyh1c",
+    "category": "Mobil Sport"
+  },
+  {
+    "name": "Nissan GT-R",
+    "brand": "Nissan",
+    "year": 2021,
+    "description": "Supercar Jepang dengan mesin bertenaga dan handling luar biasa.",
+    "image_url": "https://unsplash.com/photos/black-nissan-skyline-gtr-on-road-during-daytime-YChR9AjA-sI",
+    "category": "Mobil Sport"
+  },
+  {
+    "name": "Chevrolet Camaro",
+    "brand": "Chevrolet",
+    "year": 2020,
+    "description": "Mobil sport Amerika dengan mesin V8 dan desain klasik.",
+    "image_url": "https://unsplash.com/photos/blue-chevrolet-camaro-on-road-during-daytime-0EbW1xnlRXQ",
+    "category": "Mobil Sport"
+  },
+  {
+    "name": "Ford Mustang",
+    "brand": "Ford",
+    "year": 2023,
+    "description": "Ikon muscle car Amerika dengan performa tinggi dan gaya yang khas.",
+    "image_url": "https://unsplash.com/photos/red-ford-mustang-yRDOGpIgkmk",
+    "category": "Mobil Sport"
+  }
+
+
 
 ###
 

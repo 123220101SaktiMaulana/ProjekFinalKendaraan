@@ -1,4 +1,7 @@
 const apiBaseUrl = "https://kendaraan-be-75-101-981623652580.us-central1.run.app/api";
+// const apiBaseUrl = "http://localhost:5000/api";
+
+
 const accessToken = localStorage.getItem("accessToken");
 const messageEl = document.getElementById("message");
 const vehiclesTableBody = document.querySelector("#vehiclesTable tbody");
@@ -7,10 +10,25 @@ const saveBtn = document.getElementById("saveBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 const logoutBtn = document.getElementById("logoutBtn");
 
+
+// Cek role dan token di awal halaman
+(() => {
+    const token = localStorage.getItem("accessToken");
+    const role = localStorage.getItem("role");
+    if (!token || role !== "admin") {
+        alert("Akses ditolak. Harap login sebagai admin.");
+        localStorage.clear();
+        window.location.href = "login.html";
+    }
+})();
+
+
 if (!accessToken) {
     alert("Kamu belum login!");
     window.location.href = "login.html";
 }
+
+
 
 // Tampilkan pesan
 function showMessage(msg, color = "red") {
@@ -25,7 +43,9 @@ function showMessage(msg, color = "red") {
 async function fetchVehicles() {
     const accessToken = localStorage.getItem("accessToken");
     const res = await fetch(`${apiBaseUrl}/vehicles`, {
-        headers: { Authorization: `Bearer ${accessToken}` }
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
     });
     if (handleAuthError(res)) return;
     const vehicles = await res.json();
@@ -141,7 +161,7 @@ window.editVehicle = async function (id) {
                 Authorization: `Bearer ${accessToken}`
             }
         });
-        if (handleAuthError(res)) return; 
+        if (handleAuthError(res)) return;
         if (!res.ok) throw new Error("Gagal mengambil data kendaraan");
         const vehicle = await res.json();
 
@@ -179,7 +199,7 @@ window.deleteVehicle = async function (id) {
                 Authorization: `Bearer ${accessToken}`
             }
         });
-        if (handleAuthError(res)) return; 
+        if (handleAuthError(res)) return;
         if (!res.ok) {
             const errData = await res.json();
             throw new Error(errData.msg || "Gagal menghapus kendaraan");
@@ -207,8 +227,11 @@ logoutBtn.addEventListener("click", async () => {
         // tetap lanjut logout frontend
     }
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("role"); // Hapus role juga
+    localStorage.removeItem("userId");
     window.location.href = "login.html";
 });
+
 
 // Load data kendaraan saat halaman dibuka
 fetchVehicles();

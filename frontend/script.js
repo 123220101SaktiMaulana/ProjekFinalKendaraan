@@ -1,4 +1,7 @@
 const apiBaseUrl = "https://kendaraan-be-75-101-981623652580.us-central1.run.app/api";
+// const apiBaseUrl = "http://localhost:5000/api"; // Ganti dengan URL backend kamu
+
+
 
 function showMessage(msg, color = "red") {
     const message = document.getElementById("message");
@@ -61,7 +64,10 @@ function loginHandler() {
                     "Content-Type": "application/json"
                 },
                 credentials: "include", // supaya cookie refresh token diterima
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
             });
 
             const data = await response.json();
@@ -73,8 +79,8 @@ function loginHandler() {
 
             // Simpan token dan info user
             localStorage.setItem("accessToken", data.accessToken);
-            localStorage.setItem("role", data.role);       // Simpan role dari response
-            localStorage.setItem("userId", data.userId);   // Simpan userId dari response
+            localStorage.setItem("role", data.role); // Simpan role dari response
+            localStorage.setItem("userId", data.userId); // Simpan userId dari response
 
             showMessage("Login berhasil! Mengarahkan...", "green");
 

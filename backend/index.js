@@ -14,6 +14,7 @@ const app = express();
 
 app.use(cors({
     origin: "https://fe-projekakhir-75-101-dot-b-12-450709.uc.r.appspot.com",
+    // origin: "http://127.0.0.1:5500",
     credentials: true,
 }));
 app.use(cookieParser());
