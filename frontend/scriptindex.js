@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://localhost:5000/api";
+const apiBaseUrl = "https://kendaraan-be-75-101-981623652580.us-central1.run.app/api";
 const accessToken = localStorage.getItem("accessToken");
 const messageEl = document.getElementById("message");
 const vehiclesTableBody = document.querySelector("#vehiclesTable tbody");

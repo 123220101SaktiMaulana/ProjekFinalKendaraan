@@ -47,7 +47,7 @@
             window.location.href = "favorit.html";
         });
 
-        const apiBaseUrl = "http://localhost:5000/api";
+        const apiBaseUrl = "https://kendaraan-be-75-101-981623652580.us-central1.run.app/api";
         const accessToken = localStorage.getItem("accessToken");
         const userRole = localStorage.getItem("role") || "guest";
 
@@ -110,7 +110,7 @@
         async function addToFavorite(vehicleId) {
             const userId = localStorage.getItem("userId");
             try {
-                const res = await fetch("http://localhost:5000/favorites", {
+                const res = await fetch("https://kendaraan-be-75-101-981623652580.us-central1.run.app/favorites", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

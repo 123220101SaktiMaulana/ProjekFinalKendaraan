@@ -66,7 +66,7 @@
         async function fetchVehicleDetail(id) {
             try {
                 const accessToken = localStorage.getItem("accessToken");
-                const res = await fetch(`http://localhost:5000/api/vehicles/${id}`, {
+                const res = await fetch(`https://kendaraan-be-75-101-981623652580.us-central1.run.app/api/vehicles/${id}`, {
                     headers: { Authorization: `Bearer ${accessToken}` }
                 });
                 if (!res.ok) throw new Error("Gagal memuat detail kendaraan");
